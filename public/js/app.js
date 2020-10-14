@@ -56,3 +56,21 @@ function submitFormulario(e) {
         return;
     }
 }
+
+function mostrarAlerta(msj) {
+    const existeError = document.queryCommandEnabled('.error');
+
+    if (!existeError) {
+        const divMensaje = document.createElement('div');
+        divMensaje.classList.add('error');
+        //mensaje de error
+        divMensaje.textContent = msj;
+
+        formulario.appendChild(divMensaje);
+
+        setTimeout(() => {
+            divMensaje.remove();
+        }, 3000);
+    }
+    
+}
